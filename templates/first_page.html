@@ -1,0 +1,15 @@
+{% extends "_base.html" %}
+{% block content %}
+    {% if user.is_authenticated %}
+
+        <p>Hola, {{ user.username }}</p>
+        <a href="{% url 'post_list' %}">Black Mesa</a>
+    {% else %}
+        <p>Si no tienes una cuenta, registrate</p>
+        <a href="{% url 'signup' %}">Signup</a>
+        <br>
+        <p>Si ya tienes una cuenta puedes ingresar</p>
+        <a href="{% url 'login' %}">Login</a>
+
+    {% endif %}
+{% endblock content %}

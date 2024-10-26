@@ -10,6 +10,5 @@ class SignUpView(CreateView):
     form_class = UserCreationForm
     success_url = reverse_lazy("login")
 
-class LogOutView(TemplateView):
-    template_name = "registration/logout.html"
-
+def FirstPage(request):
+    return render(request, "first_page.html")

@@ -12,8 +12,32 @@
 </head>
 <body>
     <header>
-        <a href="{% url 'post_list' %}">Home</a>
-        
+        <!-- <nav class="navbar">
+            <ul class="nav-menu">
+                <li><a href="{% url 'post_list' %}">Home</a></li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+            </ul>
+        </nav>  -->
+
+        <nav class="navbar">
+            <div class="logo">
+                <img src="{% static 'media/Django-Logo.png' %}" alt="Your Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="{% url 'post_list' %}">Home</a></li>
+                <li><a href="{% url 'post_create' %}">Make a Post</a></li>
+                <li><a href="{% url 'signup' %}">Signup</a></li>
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><form method="post" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <button class="btn-logout" type="submit">logout</button>
+                </form></li>
+            </ul>
+            <div class="search-bar">
+                <input type="text" placeholder="Search...">
+                <button>Search</button>
+            </div>
+    
     </header>
     {% block content %}
 
